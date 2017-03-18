@@ -1,0 +1,5 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '10.2'
+target 'eventer' do
+	pod 'QRCodeReaderViewController'
+end
