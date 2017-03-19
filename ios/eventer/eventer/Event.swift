@@ -16,8 +16,9 @@ class Event {
     var name: String
     var photo: UIImage?
     var desc: String
+    var eid: String
     
-    init?(name: String, photo: UIImage?, desc: String) {
+    init?(name: String, photo: UIImage?, desc: String, eid: String) {
         
         // Initialization should fail if there is no name or if the rating is negative.
         if name.isEmpty {
@@ -28,6 +29,7 @@ class Event {
         self.name = name
         self.photo = photo
         self.desc = desc
+        self.eid = eid
         
     }
     

@@ -17,6 +17,8 @@
 		C7B123F81E7E435A00C837FC /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B123F71E7E435A00C837FC /* EventTableViewCell.swift */; };
 		C7B123FA1E7E488500C837FC /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B123F91E7E488500C837FC /* Event.swift */; };
 		C7B123FC1E7E4B7800C837FC /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B123FB1E7E4B7800C837FC /* EventTableViewController.swift */; };
+		C7F9AC001E7EF4D800433964 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F9ABFF1E7EF4D800433964 /* EventDetailViewController.swift */; };
+		C7F9AC021E7EF4FF00433964 /* EventDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F9AC011E7EF4FF00433964 /* EventDetailViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		C7B123F71E7E435A00C837FC /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		C7B123F91E7E488500C837FC /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		C7B123FB1E7E4B7800C837FC /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
+		C7F9ABFF1E7EF4D800433964 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		C7F9AC011E7EF4FF00433964 /* EventDetailViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,8 @@
 				C7B123F91E7E488500C837FC /* Event.swift */,
 				C7B123F71E7E435A00C837FC /* EventTableViewCell.swift */,
 				C7B123FB1E7E4B7800C837FC /* EventTableViewController.swift */,
+				C7F9AC011E7EF4FF00433964 /* EventDetailViewCell.swift */,
+				C7F9ABFF1E7EF4D800433964 /* EventDetailViewController.swift */,
 				C7A7AE0B1E7DD83100BBCF1D /* Main.storyboard */,
 				C7A7AE0E1E7DD83100BBCF1D /* Assets.xcassets */,
 				C7A7AE101E7DD83100BBCF1D /* LaunchScreen.storyboard */,
@@ -216,7 +222,9 @@
 				C7A7AE061E7DD83100BBCF1D /* AppDelegate.swift in Sources */,
 				C7A7AE081E7DD83100BBCF1D /* FirstViewController.swift in Sources */,
 				C7B123F81E7E435A00C837FC /* EventTableViewCell.swift in Sources */,
+				C7F9AC021E7EF4FF00433964 /* EventDetailViewCell.swift in Sources */,
 				C7B123FC1E7E4B7800C837FC /* EventTableViewController.swift in Sources */,
+				C7F9AC001E7EF4D800433964 /* EventDetailViewController.swift in Sources */,
 				C7B123FA1E7E488500C837FC /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

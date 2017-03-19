@@ -1,21 +1,21 @@
 //
-//  EventTableViewController.swift
+//  EventDetailViewController.swift
 //  LitTix
 //
-//  Created by Eric Mikulin on 2017-03-18.
+//  Created by Eric Mikulin on 2017-03-19.
 //  Copyright © 2017 Eric Mikulin. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class EventTableViewController: UITableViewController {
+class EventDetailViewController: UITableViewController {
     
-    var events = [Event]()
+    var people: [[String]] = Array(repeating: Array(repeating: "-", count: 2), count: 100)
     var strdata: Data?
     
     private func getRequest(){
-        var request = URLRequest(url: URL(string: "https://ubc.design/get-events")!)
+        var request = URLRequest(url: URL(string: "https://ubc.design/get-tickets")!)
         request.httpMethod = "GET"
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                 // check for fundamental networking error
@@ -34,21 +34,20 @@ class EventTableViewController: UITableViewController {
         getRequest()
         sleep(1)
         var names = [String]()
-        var descs = [String]()
-        var ids = [String]()
+        var statuses = [String]()
         
         do {
             if let data = strdata,
                 let json = try JSONSerialization.jsonObject(with: data) as? [[String: Any]] {
                 for item in json {
-                    if let name = item["name"] as? String {
+                    if let name = item["name"] as? String{
                         names.append(name)
                     }
-                    if let desc = item["description"] as? String {
-                        descs.append(desc)
-                    }
-                    if let id = item["id"] as? String {
-                        ids.append(id)
+                    if let status = item["used"] as? Bool{
+                        if status{
+                            statuses.append("true")
+
+                        } else { statuses.append("false") }
                     }
                 }
             }
@@ -57,35 +56,35 @@ class EventTableViewController: UITableViewController {
         }
         
         print(names)
-        print(descs)
-        print(ids)
-        descs.append("RIP")
+        print(statuses)
         
         for ind in 0...(names.count-1) {
-            let tphotoName = "bop1"
-            let tevent = Event(name: names[ind], photo: UIImage(named: tphotoName), desc: descs[ind], eid: ids[ind])
-            events.append(tevent!)
+            let out = [names[ind], statuses[ind]]
+            people.append(out)
         }
+        
+        people = people.filter() { $0[0] != "-" }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        return people.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier.
-        let cellIdentifier = "EventTableViewCell"
+        let cellIdentifier = "EventDetailViewCell"
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? EventTableViewCell  else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? EventDetailViewCell  else {
             fatalError("The dequeued cell is not an instance of EventTableViewCell.")
         }
         
         // Fetches the appropriate meal for the data source layout.
-        let event = events[indexPath.row]
+        let person = people[indexPath.row]
         
-        cell.titleView.text = event.name
-        cell.previewIcon.image = event.photo
-        cell.descView.text = event.desc
+        cell.nameLabel.text = person[0]
+        if person[1] == "false" {
+            cell.nameLabel.textColor = UIColor(red:1.00, green:0.00, blue:0.00, alpha:1.0)
+        }
         
         return cell
     }
