@@ -34,6 +34,7 @@ class EventTableViewController: UITableViewController {
         getRequest()
         sleep(1)
         var names = [String]()
+        var imageUrls = [String]()
         
         do {
             if let data = strdata,
@@ -41,7 +42,9 @@ class EventTableViewController: UITableViewController {
                 for item in json {
                     if let name = item["name"] as? String {
                         names.append(name)
-                        print(name)
+                    }
+                    if let iurl = item["image"] as? String {
+                        imageUrls.append(iurl)
                     }
                 }
             }
@@ -49,8 +52,12 @@ class EventTableViewController: UITableViewController {
             print("Error deserializing JSON: \(error)")
         }
         
-        for event in names {
-           let tevent = Event(name: event, photo: UIImage(named: "kek"), desc: "lit AF")
+        print(names)
+        
+        for ind in 0...(names.count-1) {
+            // let tphotoName = imageUrls[ind]
+            let tphotoName = "bop1"
+            let tevent = Event(name: names[ind], photo: UIImage(named: tphotoName), desc: "lit AF")
             events.append(tevent!)
         }
     }
