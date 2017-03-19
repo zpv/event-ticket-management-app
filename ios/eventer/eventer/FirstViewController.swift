@@ -29,7 +29,7 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
             }
             
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 1 {           // check for http errors
-                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("statusCode should be 1, but is \(httpStatus.statusCode)")
                 print("response = \(response)")
             }
             
