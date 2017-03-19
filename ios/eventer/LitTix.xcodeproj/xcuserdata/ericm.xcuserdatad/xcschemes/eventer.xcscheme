@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C7A7AE011E7DD83100BBCF1D"
-               BuildableName = "eventer.app"
-               BlueprintName = "eventer"
-               ReferencedContainer = "container:eventer.xcodeproj">
+               BuildableName = "LitTix.app"
+               BlueprintName = "LitTix"
+               ReferencedContainer = "container:LitTix.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C7A7AE171E7DD83200BBCF1D"
-               BuildableName = "eventerTests.xctest"
-               BlueprintName = "eventerTests"
-               ReferencedContainer = "container:eventer.xcodeproj">
+               BuildableName = "LitTixTests.xctest"
+               BlueprintName = "LitTixTests"
+               ReferencedContainer = "container:LitTix.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C7A7AE011E7DD83100BBCF1D"
-            BuildableName = "eventer.app"
-            BlueprintName = "eventer"
-            ReferencedContainer = "container:eventer.xcodeproj">
+            BuildableName = "LitTix.app"
+            BlueprintName = "LitTix"
+            ReferencedContainer = "container:LitTix.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C7A7AE011E7DD83100BBCF1D"
-            BuildableName = "eventer.app"
-            BlueprintName = "eventer"
-            ReferencedContainer = "container:eventer.xcodeproj">
+            BuildableName = "LitTix.app"
+            BlueprintName = "LitTix"
+            ReferencedContainer = "container:LitTix.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C7A7AE011E7DD83100BBCF1D"
-            BuildableName = "eventer.app"
-            BlueprintName = "eventer"
-            ReferencedContainer = "container:eventer.xcodeproj">
+            BuildableName = "LitTix.app"
+            BlueprintName = "LitTix"
+            ReferencedContainer = "container:LitTix.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

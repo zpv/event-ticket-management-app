@@ -28,7 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C7A7AE021E7DD83100BBCF1D /* eventer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eventer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7A7AE021E7DD83100BBCF1D /* LitTix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LitTix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A7AE051E7DD83100BBCF1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7A7AE071E7DD83100BBCF1D /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		C7A7AE091E7DD83100BBCF1D /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -36,7 +36,7 @@
 		C7A7AE0E1E7DD83100BBCF1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7A7AE111E7DD83100BBCF1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7A7AE131E7DD83100BBCF1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C7A7AE181E7DD83200BBCF1D /* eventerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eventerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7A7AE181E7DD83200BBCF1D /* LitTixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LitTixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A7AE1C1E7DD83200BBCF1D /* eventerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventerTests.swift; sourceTree = "<group>"; };
 		C7A7AE1E1E7DD83200BBCF1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7B123F51E7E2FB200C837FC /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -72,8 +72,8 @@
 		C7A7AE031E7DD83100BBCF1D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C7A7AE021E7DD83100BBCF1D /* eventer.app */,
-				C7A7AE181E7DD83200BBCF1D /* eventerTests.xctest */,
+				C7A7AE021E7DD83100BBCF1D /* LitTix.app */,
+				C7A7AE181E7DD83200BBCF1D /* LitTixTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,9 +105,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C7A7AE011E7DD83100BBCF1D /* eventer */ = {
+		C7A7AE011E7DD83100BBCF1D /* LitTix */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C7A7AE211E7DD83200BBCF1D /* Build configuration list for PBXNativeTarget "eventer" */;
+			buildConfigurationList = C7A7AE211E7DD83200BBCF1D /* Build configuration list for PBXNativeTarget "LitTix" */;
 			buildPhases = (
 				C7A7ADFE1E7DD83100BBCF1D /* Sources */,
 				C7A7ADFF1E7DD83100BBCF1D /* Frameworks */,
@@ -117,14 +117,14 @@
 			);
 			dependencies = (
 			);
-			name = eventer;
+			name = LitTix;
 			productName = eventer;
-			productReference = C7A7AE021E7DD83100BBCF1D /* eventer.app */;
+			productReference = C7A7AE021E7DD83100BBCF1D /* LitTix.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C7A7AE171E7DD83200BBCF1D /* eventerTests */ = {
+		C7A7AE171E7DD83200BBCF1D /* LitTixTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C7A7AE241E7DD83200BBCF1D /* Build configuration list for PBXNativeTarget "eventerTests" */;
+			buildConfigurationList = C7A7AE241E7DD83200BBCF1D /* Build configuration list for PBXNativeTarget "LitTixTests" */;
 			buildPhases = (
 				C7A7AE141E7DD83200BBCF1D /* Sources */,
 				C7A7AE151E7DD83200BBCF1D /* Frameworks */,
@@ -135,9 +135,9 @@
 			dependencies = (
 				C7A7AE1A1E7DD83200BBCF1D /* PBXTargetDependency */,
 			);
-			name = eventerTests;
+			name = LitTixTests;
 			productName = eventerTests;
-			productReference = C7A7AE181E7DD83200BBCF1D /* eventerTests.xctest */;
+			productReference = C7A7AE181E7DD83200BBCF1D /* LitTixTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -162,7 +162,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C7A7ADFD1E7DD83100BBCF1D /* Build configuration list for PBXProject "eventer" */;
+			buildConfigurationList = C7A7ADFD1E7DD83100BBCF1D /* Build configuration list for PBXProject "LitTix" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -175,8 +175,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C7A7AE011E7DD83100BBCF1D /* eventer */,
-				C7A7AE171E7DD83200BBCF1D /* eventerTests */,
+				C7A7AE011E7DD83100BBCF1D /* LitTix */,
+				C7A7AE171E7DD83200BBCF1D /* LitTixTests */,
 			);
 		};
 /* End PBXProject section */
@@ -226,7 +226,7 @@
 /* Begin PBXTargetDependency section */
 		C7A7AE1A1E7DD83200BBCF1D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C7A7AE011E7DD83100BBCF1D /* eventer */;
+			target = C7A7AE011E7DD83100BBCF1D /* LitTix */;
 			targetProxy = C7A7AE191E7DD83200BBCF1D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -349,7 +349,7 @@
 				DEVELOPMENT_TEAM = EU9HUJJU2X;
 				INFOPLIST_FILE = eventer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ericmik.eventer;
+				PRODUCT_BUNDLE_IDENTIFIER = ericmik.LitTix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -362,7 +362,7 @@
 				DEVELOPMENT_TEAM = EU9HUJJU2X;
 				INFOPLIST_FILE = eventer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ericmik.eventer;
+				PRODUCT_BUNDLE_IDENTIFIER = ericmik.LitTix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -378,7 +378,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ericmik.eventerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eventer.app/eventer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LitTix.app/LitTix";
 			};
 			name = Debug;
 		};
@@ -392,14 +392,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ericmik.eventerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eventer.app/eventer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LitTix.app/LitTix";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C7A7ADFD1E7DD83100BBCF1D /* Build configuration list for PBXProject "eventer" */ = {
+		C7A7ADFD1E7DD83100BBCF1D /* Build configuration list for PBXProject "LitTix" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C7A7AE1F1E7DD83200BBCF1D /* Debug */,
@@ -408,7 +408,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C7A7AE211E7DD83200BBCF1D /* Build configuration list for PBXNativeTarget "eventer" */ = {
+		C7A7AE211E7DD83200BBCF1D /* Build configuration list for PBXNativeTarget "LitTix" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C7A7AE221E7DD83200BBCF1D /* Debug */,
@@ -417,7 +417,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C7A7AE241E7DD83200BBCF1D /* Build configuration list for PBXNativeTarget "eventerTests" */ = {
+		C7A7AE241E7DD83200BBCF1D /* Build configuration list for PBXNativeTarget "LitTixTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C7A7AE251E7DD83200BBCF1D /* Debug */,
