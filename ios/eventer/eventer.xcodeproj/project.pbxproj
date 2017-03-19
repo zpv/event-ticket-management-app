@@ -14,6 +14,7 @@
 		C7A7AE0F1E7DD83100BBCF1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A7AE0E1E7DD83100BBCF1D /* Assets.xcassets */; };
 		C7A7AE121E7DD83100BBCF1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A7AE101E7DD83100BBCF1D /* LaunchScreen.storyboard */; };
 		C7A7AE1D1E7DD83200BBCF1D /* eventerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A7AE1C1E7DD83200BBCF1D /* eventerTests.swift */; };
+		C7B123F61E7E2FB200C837FC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B123F51E7E2FB200C837FC /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		C7A7AE181E7DD83200BBCF1D /* eventerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eventerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A7AE1C1E7DD83200BBCF1D /* eventerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventerTests.swift; sourceTree = "<group>"; };
 		C7A7AE1E1E7DD83200BBCF1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7B123F51E7E2FB200C837FC /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				C7A7AE051E7DD83100BBCF1D /* AppDelegate.swift */,
 				C7A7AE071E7DD83100BBCF1D /* FirstViewController.swift */,
 				C7A7AE091E7DD83100BBCF1D /* SecondViewController.swift */,
+				C7B123F51E7E2FB200C837FC /* MainViewController.swift */,
 				C7A7AE0B1E7DD83100BBCF1D /* Main.storyboard */,
 				C7A7AE0E1E7DD83100BBCF1D /* Assets.xcassets */,
 				C7A7AE101E7DD83100BBCF1D /* LaunchScreen.storyboard */,
@@ -206,6 +209,7 @@
 				C7A7AE0A1E7DD83100BBCF1D /* SecondViewController.swift in Sources */,
 				C7A7AE061E7DD83100BBCF1D /* AppDelegate.swift in Sources */,
 				C7A7AE081E7DD83100BBCF1D /* FirstViewController.swift in Sources */,
+				C7B123F61E7E2FB200C837FC /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

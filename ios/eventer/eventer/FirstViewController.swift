@@ -18,7 +18,7 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
     var qrCodeFrameView:UIView?
     
     func sendRequest(whyCode: String){
-        var request = URLRequest(url: URL(string: "http://35.161.247.157:3000/scan-ticket")!)
+        var request = URLRequest(url: URL(string: "https://ubc.design/scan-ticket")!)
         request.httpMethod = "POST"
         let postString = "code="+whyCode
         request.httpBody = postString.data(using: .utf8)
@@ -61,6 +61,7 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
                 
                 if metadataObj.stringValue.hasPrefix("CODE") {
                     messageLabel.text = "Sending code: " + String(metadataObj.stringValue.characters.dropFirst(4))
+                    sendRequest(whyCode: String(metadataObj.stringValue.characters.dropFirst(4)) )
                 }
             }
         }
