@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jeffyang.nwhackseventmanagementapp.MainActivity"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="425dp"
+        android:gravity="center_horizontal"
+        android:text="Test event 1 name \n event date \n event location "
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="8dp" />
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        xmlns:tools="http://schemas.android.com/tools"
+
+        android:layout_width="0dp"
+
+        android:layout_height="0dp"
+
+        android:orientation="vertical"
+
+        android:layout_gravity="center"
+
+        android:gravity="center"
+
+        tools:context="com.rgg.rahulgoswami.qrscanner.MainActivity"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:text="QR CODE SCANNER AND GENERATOR"
+
+            android:id="@+id/textView"
+
+            android:textSize="20sp"
+
+            android:gravity="center"
+
+            android:layout_alignParentTop="true"
+
+            android:layout_centerHorizontal="true" />
+
+
+
+        <Button
+
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+
+            android:text="Generate QR"
+
+            android:id="@+id/button"
+
+            android:layout_marginTop="40dp"
+
+            android:layout_gravity="center"
+
+            android:layout_above="@+id/textView2"
+
+            android:layout_alignEnd="@+id/imageView" />
+
+
+
+        <Button
+
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+
+            android:text="Scan QR"
+
+            android:id="@+id/button2"
+
+            android:layout_marginTop="20dp"
+
+            android:layout_gravity="center"
+
+            android:layout_alignTop="@+id/button"
+
+            android:layout_toStartOf="@+id/button" />
+
+
+        <TextView
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:text="By Perfect RG"
+
+            android:id="@+id/textView2"
+
+            android:layout_margin="40dp"
+
+            android:layout_gravity="center"
+
+            android:layout_alignParentBottom="true"
+
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:textAppearance="?android:attr/textAppearanceSmall"
+
+            android:text="prfectrg.blogspot.com"
+
+            android:id="@+id/textView3"
+
+            android:layout_gravity="center_horizontal" />
+
+
+    </LinearLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>
