@@ -11,8 +11,6 @@ import UIKit
 
 class EventTableViewController: UITableViewController {
     
-    @IBOutlet weak var eventList: UITableView!
-    
     var events = [Event]()
     
     private func loadSampleEvents() {
@@ -35,12 +33,11 @@ class EventTableViewController: UITableViewController {
         events += [event1, event2, event3]
     }
     
-    func tableView(_tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "EventTableViewCell"
         
@@ -51,9 +48,9 @@ class EventTableViewController: UITableViewController {
         // Fetches the appropriate meal for the data source layout.
         let event = events[indexPath.row]
         
-        cell.titleLabel.text = event.name
-        cell.imageIconView.image = event.photo
-        cell.descLabel.text = event.desc
+        cell.titleView.text = event.name
+        cell.previewIcon.image = event.photo
+        cell.descView.text = event.desc
         
         return cell
     }
