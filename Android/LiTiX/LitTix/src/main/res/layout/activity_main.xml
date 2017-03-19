@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#6cc5eaff"
+    tools:context="com.example.jeffyang.litix.MainActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="360dp"
+        android:layout_height="250dp"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/bop1"
+        tools:layout_editor_absoluteX="12dp"
+        tools:layout_editor_absoluteY="-4dp" />
+
+
+
+    <Button
+        android:id="@+id/event_btn"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:gravity="center"
+        android:text=" nwHacks AfterParty \n Get ready for the most LIT party of the year"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="246dp" />
+
+</android.support.constraint.ConstraintLayout>

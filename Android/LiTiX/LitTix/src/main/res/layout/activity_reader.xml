@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.jeffyang.litix.MainActivity">
+    tools:context="com.example.jeffyang.litix.ReaderActivity">
+
 
     <Button
-        android:id="@+id/event_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text=" MyEvent \n Location \n Date"
-        tools:layout_editor_absoluteX="143dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Scan Ticket"
+        android:id="@+id/scan_btn"/>
 </android.support.constraint.ConstraintLayout>
