@@ -12,25 +12,47 @@ import UIKit
 class EventTableViewController: UITableViewController {
     
     var events = [Event]()
+    var strdata: Data?
+    
+    private func getRequest(){
+        var request = URLRequest(url: URL(string: "https://ubc.design/get-events")!)
+        request.httpMethod = "GET"
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                print("error=\(error)")
+                return
+            }
+            
+            let responseString = String(data: data, encoding: .utf8)
+            self.strdata = data
+            print("responseString = \(responseString)")
+        }
+        task.resume()
+    }
     
     private func loadSampleEvents() {
-        let photo1 = UIImage(named: "kek")
-        let photo2 = UIImage(named: "kek")
-        let photo3 = UIImage(named: "kek")
+        getRequest()
+        sleep(1)
+        var names = [String]()
         
-        guard let event1 = Event(name: "NW Hacks After Party", photo: photo1, desc: "Lit Party") else {
-            fatalError("Unable to instantiate event")
+        do {
+            if let data = strdata,
+                let json = try JSONSerialization.jsonObject(with: data) as? [[String: Any]] {
+                for item in json {
+                    if let name = item["name"] as? String {
+                        names.append(name)
+                        print(name)
+                    }
+                }
+            }
+        } catch {
+            print("Error deserializing JSON: \(error)")
         }
         
-        guard let event2 = Event(name: "After After Party", photo: photo2, desc: "Lit Party") else {
-            fatalError("Unable to instantiate event")
+        for event in names {
+           let tevent = Event(name: event, photo: UIImage(named: "kek"), desc: "lit AF")
+            events.append(tevent!)
         }
-        
-        guard let event3 = Event(name: "The Party", photo: photo3, desc: "Lit Party") else {
-            fatalError("Unable to instantiate event")
-        }
-        
-        events += [event1, event2, event3]
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
