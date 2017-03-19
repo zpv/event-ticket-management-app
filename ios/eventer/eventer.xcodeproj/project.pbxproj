@@ -411,6 +411,7 @@
 				C7A7AE231E7DD83200BBCF1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C7A7AE241E7DD83200BBCF1D /* Build configuration list for PBXNativeTarget "eventerTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +420,7 @@
 				C7A7AE261E7DD83200BBCF1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
