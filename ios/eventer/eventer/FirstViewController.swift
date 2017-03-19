@@ -18,7 +18,7 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
     var qrCodeFrameView:UIView?
     
     func sendRequest(whyCode: String){
-        var request = URLRequest(url: URL(string: "http://www.ipaddr.com/scan-ticket")!)
+        var request = URLRequest(url: URL(string: "http://35.161.247.157:3000/scan-ticket")!)
         request.httpMethod = "POST"
         let postString = "code="+whyCode
         request.httpBody = postString.data(using: .utf8)

@@ -32,7 +32,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Organizer" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Organizer" image="qrCon" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="messageLabel" destination="yGa-I7-yBm" id="pC5-gY-Myv"/>
                     </connections>
@@ -75,7 +75,7 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Info" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Info" image="quesCon" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -94,7 +94,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Attend" id="Uii-zt-0tF"/>
+                    <tabBarItem key="tabBarItem" title="Attend" image="tickCon" id="Uii-zt-0tF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MDB-Sq-lgC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,8 +122,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="qrCon" width="22" height="22"/>
+        <image name="quesCon" width="23" height="23"/>
+        <image name="tickCon" width="23" height="23"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
