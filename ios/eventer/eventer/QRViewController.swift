@@ -11,7 +11,7 @@ import AudioToolbox
 import AVFoundation
 import Foundation
 
-class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
     @IBOutlet var messageLabel: UILabel!
 
