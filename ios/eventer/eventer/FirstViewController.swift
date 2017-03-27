@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Foundation
 
 class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
@@ -17,7 +18,27 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
     
-    func sendRequest(whyCode: String){
+    var sendCooldownBool = true
+    var strdata: Data?
+    
+    func readJson() -> Int{
+        do {
+            if let data = strdata,
+                let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
+                    if let response = json["response"] as? Int{
+                        return response
+                    }
+            } else {
+                print("No json??")
+            }
+        } catch {
+            print("Error deserializing JSON: \(error)")
+        }
+        return -1
+    }
+
+    
+    func sendRequest(whyCode: String, completionHandler: @escaping (Data) -> ()){
         var request = URLRequest(url: URL(string: "https://ubc.design/scan-ticket")!)
         request.httpMethod = "POST"
         let postString = "code="+whyCode
@@ -28,10 +49,19 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
                 return
             }
             
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 1 {           // check for http errors
-                print("statusCode should be 1, but is \(httpStatus.statusCode)")
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode == 200 {
+                print("Valid Response")
+                //self.strdata = data;
+                self.strdata = data;
+                completionHandler(data)
+                return
+            }
+
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 print("response = \(response)")
             }
+
             
             let responseString = String(data: data, encoding: .utf8)
             print("responseString = \(responseString)")
@@ -45,6 +75,8 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
             messageLabel.text = "No QR code is detected"
+            messageLabel.backgroundColor = UIColor.white
+            sendCooldownBool = true
             return
         }
         
@@ -57,13 +89,37 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
-                messageLabel.text = metadataObj.stringValue
+                // messageLabel.text = metadataObj.stringValue
                 
-                if metadataObj.stringValue.hasPrefix("CODE") {
+                if metadataObj.stringValue.hasPrefix("CODE") && sendCooldownBool {
                     messageLabel.text = "Sending code: " + String(metadataObj.stringValue.characters.dropFirst(4))
-                    sendRequest(whyCode: String(metadataObj.stringValue.characters.dropFirst(4)) )
+                    messageLabel.backgroundColor = UIColor.yellow
+                    sendRequest(whyCode: String(metadataObj.stringValue.characters.dropFirst(4))) {
+                        data in
+                        DispatchQueue.main.async {
+                            self.validateTicket(rcode: self.readJson())
+                            
+                        }
+                    }
+                    sendCooldownBool = false
                 }
             }
+        }
+    }
+    
+    func validateTicket (rcode: Int) {
+        messageLabel.text = "This ticket is valid!"
+        messageLabel.backgroundColor = UIColor.green
+        print(rcode)
+        if rcode == 1 {
+            messageLabel.text = "This ticket is valid!"
+            messageLabel.backgroundColor = UIColor.green
+        } else if rcode == 2 {
+            messageLabel.text = "This ticket is valid! Already Used"
+            messageLabel.backgroundColor = UIColor.green
+        } else {
+            messageLabel.text = "Invalid!"
+            messageLabel.backgroundColor = UIColor.red
         }
     }
     
