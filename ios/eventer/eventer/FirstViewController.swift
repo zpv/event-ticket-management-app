@@ -38,6 +38,21 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
         return -1
     }
 
+    func readJsonName() -> String{
+        do {
+            if let data = strdata,
+                let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
+                if let response = json["name"] as? String{
+                    return response
+                }
+            } else {
+                print("No json??")
+            }
+        } catch {
+            print("Error deserializing JSON: \(error)")
+        }
+        return "Oops"
+    }
     
     func sendRequest(whyCode: String, completionHandler: @escaping (Data) -> ()){
         var request = URLRequest(url: URL(string: "https://ubc.design/scan-ticket")!)
@@ -100,6 +115,13 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
                         DispatchQueue.main.async {
                             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                             self.validateTicket(rcode: self.readJson())
+                            let name = self.readJsonName()
+                            
+                            if( self.readJson() == 1 ) {
+                                let alert = UIAlertController(title: "", message: "Checked in: "+name, preferredStyle: UIAlertControllerStyle.alert)
+                                alert.addAction(UIAlertAction(title: "Accept", style: UIAlertActionStyle.default, handler: nil))
+                                self.present(alert, animated: true, completion: nil)
+                            }
                             
                         }
                     }
