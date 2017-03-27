@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 import AVFoundation
 import Foundation
 
@@ -97,6 +98,7 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
                     sendRequest(whyCode: String(metadataObj.stringValue.characters.dropFirst(4))) {
                         data in
                         DispatchQueue.main.async {
+                            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                             self.validateTicket(rcode: self.readJson())
                             
                         }
