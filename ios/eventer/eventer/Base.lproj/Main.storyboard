@@ -82,67 +82,6 @@
             <point key="canvasLocation" x="-1" y="904"/>
         </scene>
         <!--Home-->
-        <scene sceneID="Aco-Ix-eld">
-            <objects>
-                <tableViewController id="2Ua-BN-7mt" customClass="EventTableViewController" customModule="LitTix" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="124" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fzc-gJ-z0T">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventTableViewCell" rowHeight="124" id="pjv-AP-j7y" customClass="EventTableViewCell" customModule="LitTix" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="124"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pjv-AP-j7y" id="oa8-2O-rWL">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="124"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iOS Icon" translatesAutoresizingMaskIntoConstraints="NO" id="7YK-ZH-KLj">
-                                            <rect key="frame" x="0.0" y="-12" width="375" height="147"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAs-Rb-YoO">
-                                            <rect key="frame" x="0.0" y="8" width="375" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDI-dH-u7n">
-                                            <rect key="frame" x="8" y="43" width="359" height="72"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <accessibility key="accessibilityConfiguration" identifier="EventTableViewCell">
-                                    <bool key="isElement" value="NO"/>
-                                </accessibility>
-                                <connections>
-                                    <outlet property="descView" destination="LDI-dH-u7n" id="W4d-X7-r0k"/>
-                                    <outlet property="previewIcon" destination="7YK-ZH-KLj" id="Bvk-S8-Rei"/>
-                                    <outlet property="titleView" destination="AAs-Rb-YoO" id="Ek5-38-jQY"/>
-                                    <segue destination="YHf-Sh-9fJ" kind="showDetail" identifier="ShowEventDetail" animates="NO" id="vkk-tt-JJz"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="2Ua-BN-7mt" id="Mbv-AS-H9O"/>
-                            <outlet property="delegate" destination="2Ua-BN-7mt" id="aXf-Sb-FD2"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Home" image="tickCon" id="4IQ-OW-qgK"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FIB-TV-LDE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="942" y="252"/>
-        </scene>
-        <!--Event Detail View Controller-->
         <scene sceneID="rj4-nS-Zkc">
             <objects>
                 <tableViewController id="YHf-Sh-9fJ" customClass="EventDetailViewController" customModule="LitTix" customModuleProvider="target" sceneMemberID="viewController">
@@ -150,19 +89,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <navigationBar key="tableFooterView" contentMode="scaleToFill" id="cmx-Iz-XV9">
-                            <rect key="frame" x="0.0" y="72" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <items>
-                                <navigationItem id="pXZ-jq-qKH">
-                                    <barButtonItem key="leftBarButtonItem" title="Back" id="W3f-nh-YGM">
-                                        <connections>
-                                            <segue destination="49e-Tb-3d3" kind="showDetail" animates="NO" action="showViewController:sender:" id="WdK-g0-nqY"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </navigationItem>
-                            </items>
-                        </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventDetailViewCell" id="pKY-5U-LBe" customClass="EventDetailViewCell" customModule="LitTix" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -190,10 +116,15 @@
                             <outlet property="delegate" destination="YHf-Sh-9fJ" id="lIF-UZ-e6R"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Home" image="tickCon" id="upt-hQ-4pt"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="bfh-Kx-DD2">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9FP-GO-Q1T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1873" y="219"/>
+            <point key="canvasLocation" x="1076" y="105"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="yHF-ea-GxR">
@@ -270,13 +201,13 @@
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="2Ua-BN-7mt" kind="relationship" relationship="viewControllers" id="Kc2-hq-UDr"/>
+                        <segue destination="YHf-Sh-9fJ" kind="relationship" relationship="viewControllers" id="c6G-my-SIo"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="39" y="105"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Q3n-Na-FNw">
@@ -328,7 +259,7 @@
         <image name="tickCon" width="23" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WdK-g0-nqY"/>
+        <segue reference="hpw-h3-K0J"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
