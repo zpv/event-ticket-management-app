@@ -31,6 +31,7 @@ class EventDetailViewController: UITableViewController {
     }
     
     private func loadSampleEvents() {
+        people.removeAll()
         getRequest()
         sleep(1)
         var names = [String]()
@@ -84,6 +85,8 @@ class EventDetailViewController: UITableViewController {
         cell.nameLabel.text = person[0]
         if person[1] == "false" {
             cell.nameLabel.textColor = UIColor(red:1.00, green:0.00, blue:0.00, alpha:1.0)
+        } else {
+            cell.nameLabel.textColor = UIColor(red:0.00, green:0.00, blue:0.00, alpha:1.0)
         }
         
         return cell
@@ -97,8 +100,16 @@ class EventDetailViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        loadSampleEvents()
+        self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
         
+        loadSampleEvents()
+    }
+    
+    func handleRefresh(refreshControl: UIRefreshControl) {
+         loadSampleEvents()
+        
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
     override func didReceiveMemoryWarning() {
