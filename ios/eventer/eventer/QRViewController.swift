@@ -1,6 +1,6 @@
 //
-//  FirstViewController.swift
-//  eventer
+//  QRViewController.swift
+//  LitTix
 //
 //  Created by Eric Mikulin on 2017-03-18.
 //  Copyright © 2017 Eric Mikulin. All rights reserved.
@@ -15,16 +15,19 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
 
     @IBOutlet var messageLabel: UILabel!
 
+    // Variables related to the QR Scanner Camera and Highlight
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
     
-    var sendCooldownBool = true
-    var strdata: Data?
+    // Variables to deal the the HTTP requests
+    var httpResponseCooldownBool = true
+    var httpResponseBuffer: Data?
     
-    func readJson() -> Int{
+    // Reads the JSON in the buffer and returns the response code as an int
+    func jsonBufferParseCode() -> Int{
         do {
-            if let data = strdata,
+            if let data = httpResponseBuffer,
                 let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
                     if let response = json["response"] as? Int{
                         return response
@@ -38,9 +41,10 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         return -1
     }
 
-    func readJsonName() -> String{
+    // Reads the JSON in the buffer and returns the name as a string
+    func jsonBufferParseName() -> String{
         do {
-            if let data = strdata,
+            if let data = httpResponseBuffer,
                 let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
                 if let response = json["name"] as? String{
                     return response
@@ -51,13 +55,14 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         } catch {
             print("Error deserializing JSON: \(error)")
         }
-        return "Oops"
+        return "Error"
     }
     
-    func sendRequest(whyCode: String, completionHandler: @escaping (Data) -> ()){
+    // Function sends a POST request to the website, where the ticket is validated and in response gets the ticket details
+    func postTicketToServer(ticketCode: String, completionHandler: @escaping (Data) -> ()){
         var request = URLRequest(url: URL(string: "https://ubc.design/scan-ticket")!)
         request.httpMethod = "POST"
-        let postString = "code="+whyCode
+        let postString = "code="+ticketCode
         request.httpBody = postString.data(using: .utf8)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                 // check for fundamental networking error
@@ -67,8 +72,7 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
             
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode == 200 {
                 print("Valid Response")
-                //self.strdata = data;
-                self.strdata = data;
+                self.httpResponseBuffer = data;
                 completionHandler(data)
                 return
             }
@@ -85,14 +89,14 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         task.resume()
     }
     
+    // Function manages the camera and QR code scanning
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
-        
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
             messageLabel.text = "No QR code is detected"
             messageLabel.backgroundColor = UIColor.white
-            sendCooldownBool = true
+            httpResponseCooldownBool = true
             return
         }
         
@@ -105,39 +109,38 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
-                // messageLabel.text = metadataObj.stringValue
                 
-                if metadataObj.stringValue.hasPrefix("CODE") && sendCooldownBool {
-                    messageLabel.text = "Sending code: " + String(metadataObj.stringValue.characters.dropFirst(4))
+                // If the QR code contains the PREFIX: CODE and it is okay to send a new HTTP request
+                if metadataObj.stringValue.hasPrefix("CODE") && httpResponseCooldownBool {
+                    let ticketQRCode = String(metadataObj.stringValue.characters.dropFirst(4))
+    
+                    messageLabel.text = "Sending code: " + ticketQRCode
                     messageLabel.backgroundColor = UIColor.yellow
-                    sendRequest(whyCode: String(metadataObj.stringValue.characters.dropFirst(4))) {
+
+                    postTicketToServer(ticketCode: ticketQRCode) {
                         data in
                         DispatchQueue.main.async {
                             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-                            self.validateTicket(rcode: self.readJson())
-                            let name = self.readJsonName()
-                            
-                            if( self.readJson() == 1 ) {
-                                let alert = UIAlertController(title: "", message: "Checked in: "+name, preferredStyle: UIAlertControllerStyle.alert)
-                                alert.addAction(UIAlertAction(title: "Accept", style: UIAlertActionStyle.default, handler: nil))
-                                self.present(alert, animated: true, completion: nil)
-                            }
-                            
+                            let ticketName = self.jsonBufferParseName()
+                            let ticketCode = self.jsonBufferParseCode()
+                            self.validateTicket(rcode: ticketCode, rname: ticketName)
                         }
                     }
-                    sendCooldownBool = false
+                    httpResponseCooldownBool = false
                 }
             }
         }
     }
     
-    func validateTicket (rcode: Int) {
-        messageLabel.text = "This ticket is valid!"
-        messageLabel.backgroundColor = UIColor.green
+    // Function displays the correct color and text on the screen
+    func validateTicket (rcode: Int, rname: String) {
         print(rcode)
         if rcode == 1 {
             messageLabel.text = "This ticket is valid!"
             messageLabel.backgroundColor = UIColor.green
+            let alert = UIAlertController(title: "Checked in: "+rname, message: "", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Accept", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         } else if rcode == 2 {
             messageLabel.text = "This ticket is valid! Already Used"
             messageLabel.backgroundColor = UIColor.green
@@ -149,8 +152,6 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
 
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -187,7 +188,6 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
             
             // Initialize QR Code Frame to highlight the QR code
             qrCodeFrameView = UIView()
-            
             if let qrCodeFrameView = qrCodeFrameView {
                 qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
                 qrCodeFrameView.layer.borderWidth = 2

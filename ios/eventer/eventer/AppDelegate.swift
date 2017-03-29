@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  eventer
+//  LitTix
 //
 //  Created by Eric Mikulin on 2017-03-18.
 //  Copyright © 2017 Eric Mikulin. All rights reserved.
